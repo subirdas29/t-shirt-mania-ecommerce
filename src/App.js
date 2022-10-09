@@ -5,6 +5,7 @@ import Main from './Layout/Main';
 import Home from './Component/Home/Home';
 import Orders from './Component/Orders/Orders';
 import About from './Component/About/About';
+import Grandpa from './Component/Grandpa/Grandpa';
 
 function App() {
 
@@ -21,6 +22,10 @@ function App() {
         {
           path:"orders",
           element:<Orders></Orders>
+        },
+        {
+          path: "grandpa",
+          element:<Grandpa></Grandpa>
         },
         {
           path:"about",

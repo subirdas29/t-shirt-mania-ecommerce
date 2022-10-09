@@ -10,7 +10,24 @@ const Home = () => {
 
     const handleAddToCart = tshirt =>
     {
-        console.log(tshirt);
+        const existing = cart.find(ts => ts._id === tshirt._id)
+        if(existing)
+        {
+            alert('t-shirt already added')
+        }
+        else
+        {
+        const newCart = [...cart,tshirt];
+        setCart(newCart);
+        // alert('New tshirt added')
+        }
+        
+    }
+
+    const handleRemoveToCart = tshirt =>
+    {
+        const remaining = cart.filter(ts => ts._id !== tshirt._id)//ekhane ts holo cart e already thaka tshirt and tshirt holo jei tshirt ta pass korbo seta..
+        setCart(remaining)
     }
     return (
         <div className='home-container'>
@@ -26,7 +43,8 @@ const Home = () => {
             }
         </div>
         <div className='cart-container'>
-            <Cart></Cart>
+            <Cart cart={cart}
+            handleRemoveToCart={handleRemoveToCart}></Cart>
         </div>
         </div>
     )};
